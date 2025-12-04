@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # @Date    : 2016-04-04 23:48
 # @Author  : Alexa (AlexaZhou@163.com)
@@ -50,7 +50,7 @@ def install_openresty( ):
     #configure && compile && install openresty
     print('### configure openresty ...')
     os.chdir( openresty_pkg.replace('.tar.gz','') )
-    exec_sys_cmd( './configure --prefix=/opt/verynginx/openresty --user=nginx --group=nginx --with-http_v2_module --with-http_sub_module --with-http_stub_status_module --with-luajit' )
+    exec_sys_cmd( './configure --with-pcre-jit --with-ipv6 --user=nginx --group=nginx --with-http_sub_module --with-http_auth_request_module --with-http_v2_module --with-stream --with-stream_ssl_module --with-stream_ssl_preread_module --with-http_ssl_module --with-luajit-xcflags=-DLUAJIT_ENABLE_LUA52COMPAT --with-http_gunzip_module --with-http_stub_status_module --with-luajit --prefix=/opt/verynginx/openresty' )
     
     print('### compile openresty ...')
     exec_sys_cmd( 'make' )
